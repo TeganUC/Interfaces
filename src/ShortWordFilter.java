@@ -3,7 +3,7 @@ public class ShortWordFilter implements Filter{
     @Override
     public boolean accept(Object x) {
 
-        String str = "";
+        String str = x.toString();
         int length = str.length();
 
         if(length < 5){

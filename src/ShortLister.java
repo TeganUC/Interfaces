@@ -13,7 +13,7 @@ public class ShortLister {
         File selectedFile;
         String rec = "";
         ArrayList<String> lines = new ArrayList<>();
-        ShortLister shortWords = new ShortLister();
+        ShortWordFilter shortWords = new ShortWordFilter();
 
         final int FIELDS_LENGTH = 5;
 
@@ -44,24 +44,16 @@ public class ShortLister {
                     rec = reader.readLine();
                     lines.add(rec);  // read all the lines into memory in an array list
                     line++;
-                    // echo to screen
-                    //System.out.printf("\nLine %4d %-60s ", line, rec);
                 }
                 reader.close(); // must close the file to seal it and flush buffer
                 System.out.println("\n\nData file read!");
 
-                //e
-
-                String[] fields;
                 for(String l:lines)
                 {
-                    if (shortWords.accept()) {
-
+                    if (shortWords.accept(l.strip())) {
+                        System.out.println(l);
                     }
-
-
                 }
-
             }
             else  // user closed the file dialog without choosing
             {
